@@ -66,7 +66,7 @@ st.title("🎈 公益课程人数展示")
 for i in people_list:
     if i:
         st.write(
-            f"当前季度 {i[0]['b2c_term_tag_name']} .  该季度对应人数：{i[0]['get_account_num_str']} 人"
+            f"当前季度 {i[0]['b2c_term_tag_name']} .  该季度当前公益课人数：{i[0]['get_account_num_str']} 人"
         )
     else:
         pass
