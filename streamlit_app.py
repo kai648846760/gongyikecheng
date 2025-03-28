@@ -36,5 +36,5 @@ def get_people():
 
 st.title("🎈 公益课程人数展示")
 st.write(
-    f"当前人数：{get_people()['data']["get_account_num_str"]}"
+    f"当前人数：{get_people()['data']['get_account_num_str']} 人"
 )
