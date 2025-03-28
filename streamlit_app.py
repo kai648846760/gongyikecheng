@@ -64,7 +64,7 @@ people_list = [ get_people(x['termTagName'])['data'] for x in get_xueqi() ]
 
 st.title("🎈 公益课程人数展示")
 for i in people_list:
-    if i[0]:
+    if i:
         st.write(
             f"当前季度 {i[0]['b2c_term_tag_name']} .  该季度对应人数：{i[0]['get_account_num_str']} 人"
         )
