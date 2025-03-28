@@ -33,9 +33,10 @@ def get_people():
     )
     return response.json()
 
-people = get_people()['data']['get_account_num_str']
+people = get_people()['data']
 
 st.title("🎈 公益课程人数展示")
-st.write(
-    f"当前人数：{people} 人"
-)
+for i in people:
+    st.write(
+        f"当前季度 {i['b2c_term_tag_name']} .  该季度对应人数：{i['get_account_num_str']} 人"
+    )
