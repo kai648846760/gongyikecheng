@@ -70,9 +70,9 @@
 #         )
 #     else:
 #         pass
-
 import streamlit as st
 import requests
+
 
 # 设置页面配置
 st.set_page_config(
@@ -80,6 +80,7 @@ st.set_page_config(
     page_icon="🎈",
     layout="centered"
 )
+
 
 def get_xueqi():
     headers = {
@@ -107,6 +108,7 @@ def get_xueqi():
         headers=headers,
     )
     return response.json()['data']
+
 
 def get_people(xueqi):
     headers = {
@@ -140,6 +142,7 @@ def get_people(xueqi):
     )
     return response.json()
 
+
 # 显示加载提示
 with st.spinner('正在获取数据...'):
     people_list = [get_people(x['termTagName'])['data'] for x in get_xueqi()]
@@ -147,20 +150,40 @@ with st.spinner('正在获取数据...'):
 # 美化标题
 st.markdown("<h1 style='text-align: center; color: #007BFF; text-shadow: 2px 2px 4px #ccc;'>🎈 公益课程人数展示</h1>", unsafe_allow_html=True)
 
-# 定义卡片样式
+# 定义卡片样式（支持暗黑模式）
 card_style = """
 <style>
-.card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+/* 亮色主题样式 */
+@media (prefers-color-scheme: light) {
+    .card {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    .separator {
+        border-top: 1px solid #e0e0e0;
+        margin: 20px 0;
+    }
 }
-.separator {
-    border-top: 1px solid #e0e0e0;
-    margin: 20px 0;
+/* 暗黑主题样式 */
+@media (prefers-color-scheme: dark) {
+    .card {
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        background-color: #333;
+        color: #fff;
+    }
+    .separator {
+        border-top: 1px solid #444;
+        margin: 20px 0;
+    }
 }
 </style>
 """
