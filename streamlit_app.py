@@ -193,7 +193,7 @@ st.markdown(card_style, unsafe_allow_html=True)
 for i in people_list:
     if i:
         st.markdown(
-            f'<div class="card">当前季度 <strong>{i[0]["b2c_term_tag_name"]}</strong> .  该季度当前公益课人数：<strong>{i[0]["get_account_num_str"]}</strong> 人</div>',
+            f'<div class="card">季度 <strong>{i[0]["b2c_term_tag_name"]}</strong> .  该季度当前公益课人数：<strong>{i[0]["get_account_num_str"]}</strong> 人</div>',
             unsafe_allow_html=True
         )
         st.markdown('<div class="separator"></div>', unsafe_allow_html=True)
